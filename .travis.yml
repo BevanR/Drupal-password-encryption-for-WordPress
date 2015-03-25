@@ -45,7 +45,7 @@ install:
     # Install and configure the test suite boilerplate.
     - cd $WP_CORE_DIR
     - git clone --depth=1 https://github.com/BevanR/Test-suite-boilerplate-for-WordPress-websites.git test
-    - mv $plugin_dir/travis/wp-tests-config.local.php test/phpunit/
+    - mv $plugin_dir/.travis/wp-tests-config.local.php test/phpunit/
     # The boilerplate repository's default phpunit.xml is already configured for drupal-password-encryption plugin.
     - mv test/phpunit/phpunit-sample.xml phpunit.xml
 
