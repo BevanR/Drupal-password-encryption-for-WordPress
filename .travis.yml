@@ -1,5 +1,8 @@
 # Travis CI configuration file
 
+# Use Travis CI's docker infrastructure.
+sudo: false
+
 # Tell Travis CI to PHP.
 language: php
 
@@ -22,17 +25,29 @@ env:
 
 # Install WordPress and test suite support files.
 install:
-    # Hand off WP install to a third party script and put the plugin into the
-    # wp-content/plugins/ directory.
-    - .travis/install-wp.sh
-    # The install script leaves working directory at plugin directory.
-    - pwd
-    - cp .travis/wp-tests-config.local.php ../../../
-    - cd ../../../
-    - pwd
+    # Init the database.
+    - mysql -e 'CREATE DATABASE wordpress_test;' -uroot
+
+    # Where to install WordPress.
+    - export WP_CORE_DIR=/tmp/wordpress
+
+    # Grab specified version of WordPress from github
+    - wget -nv -O /tmp/wordpress.tar.gz https://github.com/WordPress/WordPress/tarball/$WP_VERSION
+    - mkdir -p $WP_CORE_DIR
+    - tar --strip-components=1 -zxmf /tmp/wordpress.tar.gz -C $WP_CORE_DIR
+
+    # Put various components in proper folders
+    - build_dir=$(basename $(pwd))
+    - plugin_dir=$WP_CORE_DIR/wp-content/plugins/drupal-password-encryption
+    - mv $build_dir $plugin_dir
+
+    # Install and configure the test suite boilerplate.
+    - cd $WP_CORE_DIR
     - git clone --depth=1 https://github.com/BevanR/Test-suite-boilerplate-for-WordPress-websites.git test
-    - mv wp-tests-config.local.php test/phpunit/
+    - mv $plugin_dir/travis/wp-tests-config.local.php test/phpunit/
     # The boilerplate repository's default phpunit.xml is already configured for drupal-password-encryption plugin.
-    - cp test/phpunit/phpunit-sample.xml phpunit.xml
+    - mv test/phpunit/phpunit-sample.xml phpunit.xml
+
+    # Debug
     - more phpunit.xml
     - ls -l wp-content/plugins/drupal-password-encryption/test/
