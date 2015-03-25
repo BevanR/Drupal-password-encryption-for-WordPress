@@ -5,9 +5,9 @@ language: php
 
 # Versions of PHP to test against
 php:
-    # - "5.2"
-    # - "5.3"
-    - "5.4"
+    # - '5.2'
+    # - '5.3'
+    - '5.4'
 
 # Specify versions of WordPress to test against
 # WP_VERSION = WordPress version number (use "master" for SVN trunk)
@@ -23,3 +23,6 @@ env:
 # Grab the setup script and execute
 install:
     - .build/setup.sh
+    - git clone git@github.com:BevanR/Test-suite-boilerplate-for-WordPress-websites.git test
+    - cp wp-content/plugins/drupal-password-encryption/.build/wp-tests-config.local.php test/phpunit/
+    - cp test/phpunit/phpunit-sample.xml phpunit.xml
