@@ -39,6 +39,7 @@ install:
     # Put various components in proper folders
     - build_dir=$(basename $(pwd))
     - plugin_dir=$WP_CORE_DIR/wp-content/plugins/drupal-password-encryption
+    - cd ..
     - mv $build_dir $plugin_dir
 
     # Install and configure the test suite boilerplate.
