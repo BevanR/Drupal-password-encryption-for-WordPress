@@ -1,33 +1,31 @@
+#
 # Travis CI configuration file
+#
 
 # Use Travis CI's docker infrastructure.
 sudo: false
 
-# Tell Travis CI to PHP.
+# Tell Travis CI that this is a PHP project.
 language: php
 
 # Versions of PHP to test against.
 php:
-    # - '5.2'
-    # - '5.3'
-    - '5.4'
+    - 5.3
+    - 5.4
+    - 5.5
 
 # Specify versions of WordPress to test against.
-# WP_VERSION = WordPress version number (use "master" for SVN trunk)
-# WP_MULTISITE = whether to test multisite (use either "0" or "1")
+# WP_VERSION: Any valid branch or tag on https://github.com/WordPress/WordPress
+# WP_MULTISITE: whether to test WP multisite (0 or 1)
 env:
-    - WP_VERSION=4.1.1 WP_MULTISITE=0
-    # - WP_VERSION=4.0.* WP_MULTISITE=0
-    # - WP_VERSION=master WP_MULTISITE=0
-    # - WP_VERSION=4.1.1 WP_MULTISITE=1
-    # - WP_VERSION=4.0.* WP_MULTISITE=1
-    # - WP_VERSION=master WP_MULTISITE=1
+    - WP_VERSION=4.1-branch WP_MULTISITE=0
+    - WP_VERSION=4.1-branch WP_MULTISITE=1
+    - WP_VERSION=4.0-branch WP_MULTISITE=0
+    - WP_VERSION=3.9-branch WP_MULTISITE=0
+    - WP_VERSION=3.0-branch WP_MULTISITE=0
 
-# Install WordPress and test suite support files.
+# Install WordPress and test support files.
 install:
-    # Init the database.
-    - mysql -e 'CREATE DATABASE wordpress_test;' -uroot
-
     # Where to install WordPress.
     - export WP_CORE_DIR=/tmp/wordpress
 
@@ -49,6 +47,5 @@ install:
     # The boilerplate repository's default phpunit.xml is already configured for drupal-password-encryption plugin.
     - mv test/phpunit/phpunit-sample.xml phpunit.xml
 
-    # Debug
-    - more phpunit.xml
-    - ls -l wp-content/plugins/drupal-password-encryption/test/
+    # Init the database.
+    - mysql -e 'CREATE DATABASE wordpress_test;' -uroot
