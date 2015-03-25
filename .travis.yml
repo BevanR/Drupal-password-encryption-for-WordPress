@@ -22,7 +22,7 @@ env:
 
 # Grab the setup script and execute
 install:
-    - .build/setup.sh
+    - .travis/setup.sh
     - git clone git@github.com:BevanR/Test-suite-boilerplate-for-WordPress-websites.git test
-    - cp wp-content/plugins/drupal-password-encryption/.build/wp-tests-config.local.php test/phpunit/
+    - cp wp-content/plugins/drupal-password-encryption/.travis/wp-tests-config.local.php test/phpunit/
     - cp test/phpunit/phpunit-sample.xml phpunit.xml
