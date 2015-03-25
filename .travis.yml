@@ -25,7 +25,10 @@ install:
     # Hand off WP install to a third party script and put the plugin into the
     # wp-content/plugins/ directory.
     - .travis/install-wp.sh
-    # The install script leaves working directory as the WordPress root.
+    # The install script leaves working directory at plugin directory.
+    - cp .travis/wp-tests-config.local.php ../../../
+    - cd ../../../
     - git clone git@github.com:BevanR/Test-suite-boilerplate-for-WordPress-websites.git test
-    - cp wp-content/plugins/drupal-password-encryption/.travis/wp-tests-config.local.php test/phpunit/
+    - mv wp-tests-config.local.php test/phpunit/
+    # The boilerplate repository's default phpunit.xml is already configured for drupal-password-encryption plugin.
     - cp test/phpunit/phpunit-sample.xml phpunit.xml
