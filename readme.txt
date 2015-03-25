@@ -11,7 +11,7 @@ Support Drupal's password encryption algorithms.  Most useful for users imported
 
 == Description ==
 
-The *Drupal password encryption* plugin enables support for Drupal's password enryption algorithms.  
+The *Drupal password encryption* plugin enables support for Drupal's password encryption algorithms.
 
 > A password encryption algorithm is the method is used to secure a password when preparing to save it to the database, such as when registering a new user account, changing a password, or checking if a password is correct when logging in.
 
@@ -29,7 +29,7 @@ This plugin may work on earlier versions of WordPress.  Please share your findin
 
 1. Upload the `drupal-password-encryption/` directory to `wp-content/plugins/drupal-password-encryption/`.
 1. Activate the plugin through the '*Plugins*' menu in WordPress.
-1. Sleep more peacfully, knowing that if your database becomes compromised it will be significantly more difficult for the attacker to obtain the passwords of any users who register or change their password from now on.
+1. Sleep more peacefully, knowing that if your database becomes compromised it will be significantly more difficult for the attacker to obtain the passwords of any users who register or change their password from now on.
 1. Optionally, import users from a Drupal website, migrating `users.pass` in the Drupal website's database to `wp_users.user_pass` in the WP website's database.
 1. Optionally, change the password of any user account whose security is more important, such as administrators.
 
@@ -37,7 +37,7 @@ This plugin may work on earlier versions of WordPress.  Please share your findin
 
 = Will **existing** users need to reset their password before they can login? =
 
-No.  Drupal support's WP core's password encryption algorithm too.  So they can continue to login using the same password even after the plugin is activated.
+No.  Drupal supports WP core's password encryption algorithm too.  So they can continue to login using the same password even after the plugin is activated.
 
 = Will **imported** users need to reset their password before they can login? =
 
@@ -66,8 +66,3 @@ However as computer hardware gets faster and hackers build more tools, encrypted
 WP core's password algorithm (PHPass) is older than some alternatives.  Many tools (e.g. rainbow tables) are available to make it relatively easy for hackers to get plain text passwords from PHPass-encrypted data.
 
 Of course, the attacker first needs a copy of your encrypted data (your database) before they can start trying to retrieve plain text passwords from the encrypted data.
-
-== Changelog ==
-
-= 1.0 =
-* First release.

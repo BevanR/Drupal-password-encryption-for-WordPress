@@ -59,7 +59,7 @@ function variable_get($name, $default)
 /**
  * Returns a string of highly randomized bytes (over the full 8-bit range).
  *
- * Copied from Drupal because password.inc requires it.
+ * Copied verbatim from Drupal because password.inc requires it.
  * @see https://api.drupal.org/api/drupal/includes%21bootstrap.inc/function/drupal_random_bytes/7
  *
  * This function is better than simply calling mt_rand() or any other built-in
