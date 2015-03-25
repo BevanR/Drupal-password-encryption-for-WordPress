@@ -26,8 +26,10 @@ install:
     # wp-content/plugins/ directory.
     - .travis/install-wp.sh
     # The install script leaves working directory at plugin directory.
+    - pwd
     - cp .travis/wp-tests-config.local.php ../../../
     - cd ../../../
+    - pwd
     - git clone https://github.com/BevanR/Test-suite-boilerplate-for-WordPress-websites.git test
     - mv wp-tests-config.local.php test/phpunit/
     # The boilerplate repository's default phpunit.xml is already configured for drupal-password-encryption plugin.
