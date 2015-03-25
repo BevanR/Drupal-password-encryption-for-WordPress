@@ -32,3 +32,5 @@ install:
     - mv wp-tests-config.local.php test/phpunit/
     # The boilerplate repository's default phpunit.xml is already configured for drupal-password-encryption plugin.
     - cp test/phpunit/phpunit-sample.xml phpunit.xml
+    - more phpunit.xml
+    - ls -l wp-content/plugins/drupal-password-encryption/test/
