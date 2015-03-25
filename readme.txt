@@ -19,7 +19,7 @@ This plugin is most useful for users imported from a Drupal website.  Users' pas
 
 This plugin is also useful to simply enable stronger password encryption in WordPress.
 
-Once this plugin is activated, any existing WP user (that was not migrated from Drupal) will still be able to login using their same password.  This is possible because phpass is one of several algorithms that Drupal supports.  ([phpass](http://www.openwall.com/phpass/) is WP core's default password encryption algorithm.)  However, until they change or reset their password, it will remain encrypted using phpass.
+Once this plugin is activated, any existing WP user (that was not migrated from Drupal) will still be able to login using their same password.  This is possible because phpass is one of several algorithms that Drupal supports.  ([phpass](http://www.openwall.com/phpass/) is WP core's default password encryption algorithm.)  However, until the user changes or resets their password, it will remain encrypted using phpass.
 
 The plugin works by overriding WP's pluggable functions `wp_hash_password()` and `wp_check_password()` to invoke the equivalent functions in [Drupal 7's `password.inc`](https://api.drupal.org/api/drupal/includes%21password.inc/7), which is included with the plugin's files.
 
