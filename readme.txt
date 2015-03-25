@@ -1,4 +1,4 @@
-=== Drupal password encryption ===
+=== Drupal Password Encryption ===
 Contributors: BevanR
 Tags: drupal, password, import, migration, authentication, security
 Requires at least: 4.1.1
@@ -11,7 +11,7 @@ Support Drupal's password encryption algorithms.  Most useful for users imported
 
 == Description ==
 
-The *Drupal password encryption* plugin enables support for Drupal's password encryption algorithms.
+The *Drupal Password Encryption* plugin enables support for Drupal's password encryption algorithms.
 
 > A password encryption algorithm is the method is used to secure a password when preparing to save it to the database, such as when registering a new user account, changing a password, or checking if a password is correct when logging in.
 
