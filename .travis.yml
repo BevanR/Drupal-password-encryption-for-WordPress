@@ -1,15 +1,15 @@
-# Travis CI Configuration File
+# Travis CI configuration file
 
-# Tell Travis CI we're using PHP
+# Tell Travis CI to PHP.
 language: php
 
-# Versions of PHP to test against
+# Versions of PHP to test against.
 php:
     # - '5.2'
     # - '5.3'
     - '5.4'
 
-# Specify versions of WordPress to test against
+# Specify versions of WordPress to test against.
 # WP_VERSION = WordPress version number (use "master" for SVN trunk)
 # WP_MULTISITE = whether to test multisite (use either "0" or "1")
 env:
@@ -20,9 +20,12 @@ env:
     # - WP_VERSION=4.0.* WP_MULTISITE=1
     # - WP_VERSION=master WP_MULTISITE=1
 
-# Grab the setup script and execute
+# Install WordPress and test suite support files.
 install:
-    - .travis/setup.sh
+    # Hand off WP install to a third party script and put the plugin into the
+    # wp-content/plugins/ directory.
+    - .travis/install-wp.sh
+    # The install script leaves working directory as the WordPress root.
     - git clone git@github.com:BevanR/Test-suite-boilerplate-for-WordPress-websites.git test
     - cp wp-content/plugins/drupal-password-encryption/.travis/wp-tests-config.local.php test/phpunit/
     - cp test/phpunit/phpunit-sample.xml phpunit.xml
