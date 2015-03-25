@@ -1,4 +1,4 @@
-#!/bin/sh
+#!/bin/sh -ex
 
 # WordPress test setup script for Travis CI 
 #
