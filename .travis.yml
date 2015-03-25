@@ -2,7 +2,7 @@
 # Travis CI configuration file
 #
 
-# Use Travis CI's docker infrastructure.
+# Use Travis CI's Docker infrastructure.
 sudo: false
 
 # Tell Travis CI that this is a PHP project.
@@ -15,12 +15,10 @@ php:
     - 5.6
     - 7.0
 
-# Specify versions of WordPress to test against.
-# WP_VERSION: Any valid branch or tag on https://github.com/WordPress/WordPress
-# WP_MULTISITE: whether to test WP multisite (0 or 1)
+# Specify what version of WordPress to test with.
+# WP_VERSION: Any valid git branch or tag from github.com/WordPress/WordPress
 env:
-    - WP_VERSION=4.1-branch WP_MULTISITE=0
-    - WP_VERSION=4.1-branch WP_MULTISITE=1
+    - WP_VERSION=4.1-branch
 
 # Install WordPress and test support files.
 install:
