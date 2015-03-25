@@ -15,6 +15,8 @@ The *Drupal Password Encryption* plugin enables support for Drupal's password en
 
 > A password encryption algorithm is the method is used to secure a password when preparing to save it to the database, such as when registering a new user account, changing a password, or checking if a password is correct when logging in.
 
+[![Build Status](https://travis-ci.org/BevanR/Drupal-password-encryption-for-WordPress.svg?branch=trunk)](https://travis-ci.org/BevanR/Drupal-password-encryption-for-WordPress)
+
 This plugin is most useful for users imported from a Drupal website.  Users' passwords can be migrated (with no processing) from Drupal's `users.pass` database column to WP's `wp_users.user_pass` column.  Then, once the plugin is activated, users can login to the WP website using the same password they used to login to the Drupal website, without needing a password reset.
 
 This plugin is also useful to simply enable stronger password encryption in WordPress.
