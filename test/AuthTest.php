@@ -1,5 +1,5 @@
 <?php
-namespace DrupalPasswordEncryption\Website\Test;
+namespace BevanR\DrupalPasswordEncryption\Test;
 
 /**
  * auth.php is an unmodified copy of WP core's Auth test.
