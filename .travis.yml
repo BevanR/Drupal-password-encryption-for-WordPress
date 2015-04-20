@@ -19,7 +19,7 @@ php:
 # WP_VERSION: Any valid git branch or tag from github.com/WordPress/WordPress
 env:
     - WP_VERSION=4.1-branch
-    - WP_VERSION=4.2-branch
+    - WP_VERSION=master
 
 # Install WordPress and test support files.
 install:
